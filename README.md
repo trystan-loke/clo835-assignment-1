@@ -48,9 +48,12 @@ python app.py
 
 Ensure your MongoDB instance is running and accessible as configured in your Python script.
 ```bash
-docker run --name mongodb-container -d -p 27017:27017 -v my_mongo_data:/data/db mongo:latest
+docker run --name mongodb-container -d -p 27017:27017 --network PY-API -v my_mongo_data:/data/db mongo:latest
 ```
-
+Run App container.
+```bash
+docker run -d -p 3000:3000 --name my-python-app --network PY-API assignment-1-app
+```
 
 ## Using the Application
 
